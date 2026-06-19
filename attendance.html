@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Attendance Tracker</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<h2>Attendance Tracker</h2>
+
+<a href="dashboard.html">
+<button>Dashboard</button>
+</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Track Attendance</h2>
+
+<input
+type="text"
+id="subject"
+placeholder="Subject Name">
+
+<input
+type="number"
+id="attended"
+placeholder="Classes Attended">
+
+<input
+type="number"
+id="total"
+placeholder="Total Classes">
+
+<button onclick="saveAttendance()">
+Save Attendance
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Attendance Records</h2>
+
+<table id="attendanceTable">
+
+<thead>
+
+<tr>
+<th>Subject</th>
+<th>Attended</th>
+<th>Total</th>
+<th>Percentage</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+displayAttendance();
+</script>
+
+</body>
+</html>

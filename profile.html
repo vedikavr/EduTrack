@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Profile</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<h2>Student Profile</h2>
+
+<a href="dashboard.html">
+<button>Dashboard</button>
+</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Student Details</h2>
+
+<input
+type="text"
+id="studentName"
+placeholder="Student Name">
+
+<input
+type="text"
+id="usn"
+placeholder="USN / Roll Number">
+
+<input
+type="text"
+id="department"
+placeholder="Department">
+
+<input
+type="number"
+id="semester"
+placeholder="Semester">
+
+<button onclick="saveProfile()">
+Save Profile
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Profile Information</h2>
+
+<p><strong>Name:</strong> <span id="displayName">-</span></p>
+<p><strong>USN:</strong> <span id="displayUSN">-</span></p>
+<p><strong>Department:</strong> <span id="displayDepartment">-</span></p>
+<p><strong>Semester:</strong> <span id="displaySemester">-</span></p>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+displayProfile();
+</script>
+
+</body>
+
+</html>

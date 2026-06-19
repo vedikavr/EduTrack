@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard - EduTrack</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<h2>EduTrack Dashboard</h2>
+
+<button onclick="logoutUser()">
+Logout
+</button>
+
+</nav>
+
+<div class="container">
+
+<h1 id="welcomeUser">
+Welcome
+</h1>
+
+<!-- Attendance Calculator -->
+
+<div class="card">
+
+<h2>Attendance Calculator</h2>
+
+<input
+type="number"
+id="attended"
+placeholder="Classes Attended">
+
+<input
+type="number"
+id="total"
+placeholder="Total Classes">
+
+<button onclick="calculateAttendance()">
+Calculate Attendance
+</button>
+
+<h3 id="attendanceResult">
+Attendance: 0%
+</h3>
+
+</div>
+
+<!-- Quick Access -->
+
+<div class="card">
+
+<h2>Quick Access</h2>
+
+<a href="attendance.html">
+<button>Attendance Tracker</button>
+</a>
+
+<br><br>
+
+<a href="marks.html">
+<button>Marks Manager</button>
+</a>
+
+<br><br>
+
+<a href="cgpa.html">
+<button>CGPA Calculator</button>
+</a>
+
+<br><br>
+
+<a href="profile.html">
+<button>Student Profile</button>
+</a>
+
+<br><br>
+
+<a href="todo.html">
+<button>Assignment Tracker</button>
+</a>
+
+</div>
+
+<!-- Academic Overview -->
+
+<div class="card">
+
+<h2>Academic Overview</h2>
+
+<canvas id="performanceChart"></canvas>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+
+let username =
+localStorage.getItem("username");
+
+if(username){
+
+document.getElementById(
+"welcomeUser"
+).innerHTML =
+"Welcome, " + username + " 👋";
+
+}
+
+/* Attendance Data */
+
+let attendanceData =
+JSON.parse(
+localStorage.getItem(
+"attendanceData"
+)
+) || [];
+
+let attendanceAvg = 0;
+
+if(attendanceData.length > 0){
+
+let total = 0;
+
+attendanceData.forEach(item=>{
+
+total += parseFloat(
+item.percentage
+);
+
+});
+
+attendanceAvg =
+total / attendanceData.length;
+
+}
+
+/* Marks Data */
+
+let marksData =
+JSON.parse(
+localStorage.getItem(
+"marksData"
+)
+) || [];
+
+let marksAvg = 0;
+
+if(marksData.length > 0){
+
+let total = 0;
+
+marksData.forEach(item=>{
+
+total += parseFloat(
+item.percentage
+);
+
+});
+
+marksAvg =
+total / marksData.length;
+
+}
+
+/* Assignment Data */
+
+let tasks =
+JSON.parse(
+localStorage.getItem(
+"tasks"
+)
+) || [];
+
+let assignmentScore;
+
+if(tasks.length === 0){
+
+assignmentScore = 100;
+
+}else{
+
+assignmentScore = 50;
+
+}
+
+/* Chart */
+
+const ctx =
+document.getElementById(
+"performanceChart"
+);
+
+new Chart(ctx, {
+
+type:'doughnut',
+
+data:{
+
+labels:[
+'Attendance',
+'Marks',
+'Assignments'
+],
+
+datasets:[{
+
+data:[
+attendanceAvg,
+marksAvg,
+assignmentScore
+]
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

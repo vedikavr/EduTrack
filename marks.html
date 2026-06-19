@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Marks Manager</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<h2>Marks Manager</h2>
+
+<a href="dashboard.html">
+<button>Dashboard</button>
+</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Add Marks</h2>
+
+<input
+type="text"
+id="subject"
+placeholder="Subject Name">
+
+<input
+type="number"
+id="internal"
+placeholder="Internal Marks">
+
+<input
+type="number"
+id="external"
+placeholder="External Marks">
+
+<button onclick="saveMarks()">
+Save Marks
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Marks Records</h2>
+
+<table id="marksTable">
+
+<thead>
+
+<tr>
+<th>Subject</th>
+<th>Internal</th>
+<th>External</th>
+<th>Total</th>
+<th>Percentage</th>
+<th>Grade</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+displayMarks();
+</script>
+
+</body>
+
+</html>

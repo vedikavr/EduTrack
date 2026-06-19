@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assignment Tracker</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<h2>Assignment Tracker</h2>
+
+<a href="dashboard.html">
+<button>Dashboard</button>
+</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Add Assignment</h2>
+
+<input
+type="text"
+id="task"
+placeholder="Enter Assignment">
+
+<button onclick="addTask()">
+Add Assignment
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Pending Assignments</h2>
+
+<ul id="taskList"></ul>
+
+</div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+displayTasks();
+</script>
+
+</body>
+
+</html>
